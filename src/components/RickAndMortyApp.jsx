@@ -54,11 +54,11 @@ export default function RickAndMortyApp() {
   }
 
   return (
-    <div className="bg-gray-100 min-h-screen p-6">
+    <div className="bg-gray-900 min-h-screen p-6">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold text-center mb-6 text-blue-800">Rick and Morty Characters</h1>
+        <h1 className="text-4xl font-bold text-center mb-8 text-green-400">Rick and Morty Characters</h1>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {characters.map(character => (
             <CharacterCard key={character.id} character={character} />
           ))}
@@ -68,17 +68,17 @@ export default function RickAndMortyApp() {
           <button 
             onClick={handlePrevPage} 
             disabled={page === 1}
-            className={`px-4 py-2 rounded font-medium ${page === 1 ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+            className={`px-4 py-2 rounded-lg font-medium ${page === 1 ? 'bg-gray-700 text-gray-500 cursor-not-allowed' : 'bg-green-600 text-white hover:bg-green-700'}`}
           >
             Previous
           </button>
-          <div className="flex items-center px-4">
+          <div className="flex items-center px-4 text-white">
             Page {page} of {totalPages}
           </div>
           <button 
             onClick={handleNextPage} 
             disabled={page === totalPages}
-            className={`px-4 py-2 rounded font-medium ${page === totalPages ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+            className={`px-4 py-2 rounded-lg font-medium ${page === totalPages ? 'bg-gray-700 text-gray-500 cursor-not-allowed' : 'bg-green-600 text-white hover:bg-green-700'}`}
           >
             Next
           </button>
@@ -92,45 +92,43 @@ function CharacterCard({ character }) {
   const statusColor = {
     'Alive': 'bg-green-500',
     'Dead': 'bg-red-500',
-    'unknown': 'bg-gray-500'
+    'unknown': 'bg-gray-400'
   };
 
   return (
-    <div className="bg-white rounded-lg overflow-hidden shadow-lg border-2 border-gray-200 hover:border-blue-500 transition-all duration-300 aspect-square flex flex-col">
-      <div className="w-full h-1/2 overflow-hidden">
+    <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg border-4 border-green-500 hover:border-blue-400 transition-all duration-300 w-full aspect-square flex flex-col">
+      <div className="w-full h-1/2 overflow-hidden relative">
         <img 
           src={character.image || "/api/placeholder/300/300"} 
           alt={character.name} 
           className="w-full h-full object-cover"
         />
+        <div className="absolute top-2 right-2 flex items-center bg-gray-900 bg-opacity-70 px-2 py-1 rounded-full">
+          <span className={`inline-block w-2 h-2 rounded-full mr-1 ${statusColor[character.status]}`}></span>
+          <span className="text-xs text-white">{character.status}</span>
+        </div>
       </div>
       
-      <div className="p-3 flex flex-col flex-grow">
-        <div className="flex justify-between items-start mb-1">
-          <h2 className="text-lg font-bold text-gray-800 truncate">{character.name}</h2>
-          <div className="flex items-center">
-            <span className={`inline-block w-2 h-2 rounded-full mr-1 ${statusColor[character.status]}`}></span>
-            <span className="text-xs text-gray-600">{character.status}</span>
-          </div>
-        </div>
+      <div className="p-3 flex flex-col flex-grow text-white">
+        <h2 className="text-lg font-bold text-green-400 truncate mb-2">{character.name}</h2>
         
         <div className="mb-2 text-xs flex-grow">
           <div className="flex justify-between mb-1">
-            <span className="text-gray-600">Species:</span>
+            <span className="text-gray-400">Species:</span>
             <span className="font-medium">{character.species}</span>
           </div>
           <div className="flex justify-between mb-1">
-            <span className="text-gray-600">Gender:</span>
+            <span className="text-gray-400">Gender:</span>
             <span className="font-medium">{character.gender}</span>
           </div>
           <div className="flex justify-between mb-1">
-            <span className="text-gray-600">Origin:</span>
+            <span className="text-gray-400">Origin:</span>
             <span className="font-medium truncate" title={character.origin.name}>{character.origin.name}</span>
           </div>
         </div>
         
-        <div className="text-xs text-gray-600 mt-auto">
-          <div className="font-medium border-t border-gray-200 pt-1">
+        <div className="mt-auto border-t border-gray-600 pt-1 text-xs text-center">
+          <div className="font-medium text-gray-300">
             Episodes: {character.episode.length}
           </div>
         </div>
