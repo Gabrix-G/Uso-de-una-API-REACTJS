@@ -1,0 +1,40 @@
+/* Estilos generales */
+.home {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Estilo del header */
+.home-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.home-header h1 {
+    color: #333;
+    font-size: 36px;
+}
+
+.home-header p {
+    color: #666;
+    font-size: 18px;
+}
+
+/* Estilo de la sección de contenido */
+.home-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-content h2 {
+    color: #333;
+    font-size: 28px;
+}
+
+.home-content p {
+    color: #666;
+    font-size: 16px;
+}

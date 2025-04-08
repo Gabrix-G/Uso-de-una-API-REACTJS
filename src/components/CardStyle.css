@@ -1,0 +1,68 @@
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
+  gap: 20px; /* Espaciado entre las tarjetas */
+  padding: 20px; /* Espaciado interno del contenedor */
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+}
+
+.card {
+  background-color: #ffffff; /* Fondo blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+  overflow: hidden; /* Asegura que el contenido no se desborde */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación para hover */
+  width: 100%; /* Ajusta el ancho automáticamente dentro de la cuadrícula */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Eleva la tarjeta al pasar el mouse */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Aumenta la sombra al pasar el mouse */
+}
+
+.card img {
+  width: 100%; /* Imagen ocupa todo el ancho */
+  height: 150px; /* Altura más pequeña */
+  object-fit: cover; /* Ajusta la imagen sin deformarla */
+}
+
+.card-body {
+  padding: 12px; /* Espaciado interno más pequeño */
+}
+
+.card-title {
+  font-size: 16px; /* Tamaño del título más pequeño */
+  font-weight: bold; /* Negrita */
+  color: #333; /* Color del texto */
+  margin-bottom: 6px; /* Espaciado inferior */
+  text-align: center; /* Centra el título */
+}
+
+.card-status {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el estado horizontalmente */
+  gap: 6px; /* Espaciado entre el círculo y el texto */
+  font-size: 12px; /* Tamaño del texto más pequeño */
+  color: #666; /* Color del texto */
+}
+
+.card-status .status-indicator {
+  width: 8px; /* Tamaño del círculo más pequeño */
+  height: 8px; /* Tamaño del círculo más pequeño */
+  border-radius: 50%; /* Hace que el círculo sea redondo */
+}
+
+.card-text {
+  font-size: 12px; /* Tamaño del texto más pequeño */
+  color: #666; /* Color del texto */
+  margin-bottom: 8px; /* Espaciado inferior */
+  text-align: center; /* Centra el texto */
+}
+
+.card-footer {
+  padding: 10px; /* Espaciado interno más pequeño */
+  background-color: #f9f9f9; /* Fondo claro */
+  border-top: 1px solid #e0e0e0; /* Línea superior */
+  text-align: center; /* Centra el contenido */
+}
